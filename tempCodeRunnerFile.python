@@ -1,0 +1,39 @@
+import tkinter as tk
+from tkinter import messagebox
+
+def predict_disease():
+    age = float(entry_age.get())
+    cholesterol = float(entry_cholesterol.get())
+    blood_pressure = float(entry_blood_pressure.get())
+    
+    # ورودی کاربر را به مدل بدهیم
+    input_data = [[age, cholesterol, blood_pressure]]
+    prediction = model.predict(input_data)
+    
+    if prediction[0] == 1:
+        messagebox.showinfo("نتیجه", "بیماری قلبی دارید.")
+    else:
+        messagebox.showinfo("نتیجه", "بیماری قلبی ندارید.")
+
+# ساختن رابط کاربری
+root = tk.Tk()
+root.title("سیستم تشخیص بیماری قلبی")
+
+# ایجاد فیلدهای ورودی
+tk.Label(root, text="سن").grid(row=0)
+tk.Label(root, text="کلسترول").grid(row=1)
+tk.Label(root, text="فشار خون").grid(row=2)
+
+entry_age = tk.Entry(root)
+entry_cholesterol = tk.Entry(root)
+entry_blood_pressure = tk.Entry(root)
+
+entry_age.grid(row=0, column=1)
+entry_cholesterol.grid(row=1, column=1)
+entry_blood_pressure.grid(row=2, column=1)
+
+# دکمه برای پیش‌بینی
+tk.Button(root, text="پیش‌بینی", command=predict_disease).grid(row=3, column=1)
+
+# اجرای برنامه
+root.mainloop()
