@@ -108,8 +108,5 @@ This project is licensed under the MIT License. See the LICENSE file for details
 ## Acknowledgements
 - PyQt5 Documentation
 - Python-docx Library
-- [GDGVIT](https://github.com/GDGVIT) for inspiration
 
----
-Feel free to customize and enhance this README as per your project's specific needs.
 
